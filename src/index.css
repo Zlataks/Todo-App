@@ -1,8 +1,20 @@
 body {
   margin: 0;
+  box-sizing: border-box;
 }
 
 .Wrapper {
   background-color: #FFD700;
-  padding: 86px
+  padding: 86px;
+}
+
+.InputWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  width: 465px;
+  height: 40px;
+  margin: auto;
+  margin-top: 22px;
+  margin-bottom: 19px;
 }
