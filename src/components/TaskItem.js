@@ -23,7 +23,7 @@ class TaskItem extends React.Component {
               justifyContent: 'space-start',
               alignItems: 'center',
             }}>
-              <Checkbox {...label} defaultChecked
+              <Checkbox {...label} // defaultChecked
                 sx={{
                   padding: '10px',
                   '&.Mui-checked': {
@@ -36,7 +36,7 @@ class TaskItem extends React.Component {
                   fontFamily: 'Helvetica Neue',
                   fontSize: 16,
                 }} >
-                Publish Website
+                {this.props.text}
               </Typography>
           </Box>
           <Box
