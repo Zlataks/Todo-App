@@ -12,8 +12,14 @@ class MainComponent extends React.Component {
 
         const components = [];
 
-        tasks.forEach((item) => {
-            components.push(<TaskItem text={item}/>)
+        tasks.forEach((item, i, arr) => {
+            if (i === 0) {
+                components.push(<TaskItem first={true} text={item}/>)
+            } else if (i === arr.length - 1) {
+                components.push(<TaskItem last={true} text={item}/>)
+            } else {
+                components.push(<TaskItem text={item}/>)
+            }
         })
 
         return (

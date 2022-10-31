@@ -50,10 +50,10 @@ class TaskItem extends React.Component {
                 opacity: 1,
               }
             }}>
-            <IconButton>
+            <IconButton disabled={this.props.last}>
               <KeyboardArrowDown />
             </IconButton>
-            <IconButton>
+            <IconButton disabled={this.props.first}>
               <KeyboardArrowUp />
             </IconButton>
             <IconButton>
