@@ -12,9 +12,9 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  width: 465px;
+  width: 470px;
   height: 40px;
   margin: auto;
   margin-top: 22px;
-  margin-bottom: 19px;
+  margin-bottom: 10px;
 }

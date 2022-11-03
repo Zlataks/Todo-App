@@ -12,10 +12,11 @@ class TaskItem extends React.Component {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            width: 465,
+            width: 470,
             height: 24,
             margin: 'auto',
-            paddingTop: '13px'
+            paddingTop: '17px',
+            
         }}>
           <Box
             sx={{
@@ -35,6 +36,7 @@ class TaskItem extends React.Component {
                   height: 15,
                   fontFamily: 'Helvetica Neue',
                   fontSize: 16,
+                  cursor: 'pointer'
                 }} >
                 Publish Website
               </Typography>

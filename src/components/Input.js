@@ -25,9 +25,10 @@ class Input extends React.Component {
                     },
                     ".MuiInputBase-root": {
                         height: 40,
+                        width: 400,
                         background: '#FFFFFF',
                         border: '1px solid #000D30',
-                        borderRadius: '4px'
+                        borderRadius: '4px',
                     },
                     '.MuiInputBase-input': {
                         color: '#000000',
@@ -42,15 +43,15 @@ class Input extends React.Component {
                     },
                  }} />
                  <Button variant="contained" sx={{
+                    minWidth: '58px',
                     background: '#F78845',
-                    border: '1px solid #000000',
+                    border: '1px solid #F78845',
                     borderRadius: '4px',
                     fontFamily: 'Roboto',
                     fontWeight: 700,
                     fontSize: 14,
                     color: '#FFFFFF',
                     textTransform: 'none',
-                    align: 'center',
                     ':hover': {
                         background: '#F78845',
                         opacity: 0.8
