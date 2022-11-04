@@ -23,7 +23,7 @@ class TaskItem extends React.Component {
               justifyContent: 'space-start',
               alignItems: 'center',
             }}>
-              <Checkbox {...label} // defaultChecked
+              <Checkbox {...label} defaultChecked={this.props.checked}
                 sx={{
                   padding: '10px',
                   '&.Mui-checked': {

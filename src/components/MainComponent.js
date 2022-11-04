@@ -9,7 +9,7 @@ class MainComponent extends React.Component {
 
     render() {
 
-        const date = {
+        const data = {
             "tasks":[
                {
                   "status":"ACTIVE",
@@ -26,7 +26,7 @@ class MainComponent extends React.Component {
                 "id":"7360035bbeefc90012c2e096"
                },
                {
-                "status":"ACTIVE",
+                "status":"NOTACTIVE",
                 "priority":true,
                 "order":54,
                 "name":"Change style for first and last items",
@@ -37,17 +37,17 @@ class MainComponent extends React.Component {
 
         const components = [];
 
-        let tasks = date.tasks;
+        const tasks = data.tasks;
 
-        for (let i = 0; i < tasks.length; i++) {
+        tasks.forEach((item, i, arr) => {
             if (i === 0) {
-                components.push(<TaskItem first={true} text={tasks[i].name}/>)
-            } else if (i === tasks.length - 1) {
-                components.push(<TaskItem last={true} text={tasks[i].name}/>)
+                components.push(<TaskItem first={true} text={tasks[i].name} checked={tasks[i].status === "ACTIVE" ? false : true}/>)
+            } else if (i === arr.length - 1) {
+                components.push(<TaskItem last={true} text={tasks[i].name} checked={tasks[i].status === "ACTIVE" ? false : true}/>)
             } else {
-                components.push(<TaskItem text={tasks[i].name}/>)
+                components.push(<TaskItem text={tasks[i].name} checked={tasks[i].status === "ACTIVE" ? false : true}/>)
             }
-        }
+          })
 
         return (
             <div className="Wrapper">
