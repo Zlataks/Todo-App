@@ -36,11 +36,8 @@ class MainComponent extends React.Component {
         };
 
         const components = [];
-
-        const tasks = data.tasks;
-
-        tasks.forEach((item, i, arr) => {
-            components.push(<TaskItem first={i === 0} last={i === arr.length - 1} text={tasks[i].name} checked={tasks[i].status !== "ACTIVE"}/>)
+        data.tasks.forEach((item, i, arr) => {
+            components.push(<TaskItem first={i === 0} last={i === arr.length - 1} text={data.tasks[i].name} checked={data.tasks[i].status !== "ACTIVE"}/>)
           })
 
         return (
