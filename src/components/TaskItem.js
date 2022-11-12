@@ -24,7 +24,7 @@ class TaskItem extends React.Component {
               justifyContent: 'space-start',
               alignItems: 'center',
             }}>
-              <Checkbox {...label} defaultChecked
+              <Checkbox {...label} defaultChecked={this.props.checked}
                 sx={{
                   padding: '10px',
                   '&.Mui-checked': {
@@ -38,7 +38,7 @@ class TaskItem extends React.Component {
                   fontSize: 16,
                   cursor: 'pointer'
                 }} >
-                Publish Website
+                {this.props.text}
               </Typography>
           </Box>
           <Box
@@ -52,10 +52,10 @@ class TaskItem extends React.Component {
                 opacity: 1,
               }
             }}>
-            <IconButton>
+            <IconButton disabled={this.props.last}>
               <KeyboardArrowDown />
             </IconButton>
-            <IconButton>
+            <IconButton disabled={this.props.first}>
               <KeyboardArrowUp />
             </IconButton>
             <IconButton>
