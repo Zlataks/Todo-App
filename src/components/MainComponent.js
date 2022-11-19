@@ -12,9 +12,9 @@ class MainComponent extends React.Component {
            tasks: [],
            errorMessage: null
         };
-     }
+    }
 
-    componentDidMount() {
+    /* componentDidMount() {
         fetch('https://todo-be-production.up.railway.app/tasks')
            .then((response) => response.json())
            .then(
@@ -31,6 +31,26 @@ class MainComponent extends React.Component {
            .catch(error => {
             this.setState({ errorMessage: error.message });
            });
+    } */
+
+    componentDidMount() {
+        fetch('https://todo-be-production.up.railway.app/tasks')
+           .then((response) => {
+                if (!response.ok) {
+                    this.setState({ errorMessage: true });
+                } else {
+                    return response.json();
+                }
+            })
+            .then(
+                (result) => {
+                    this.setState({
+                            tasks: result.tasks
+                          });
+            })
+            .catch(error => {
+                this.setState({ errorMessage: true });
+            });
     }
 
     render() {
@@ -43,11 +63,11 @@ class MainComponent extends React.Component {
               }}>
               Something went wrong. Please try later
           </Typography>)
-        } else if (this.state.tasks) {
+        } else if (this.state.tasks && this.state.tasks.length) {
             this.state.tasks.forEach((item, i, arr) => {
                 components.push(<TaskItem first={i === 0} last={i === arr.length - 1} text={item.name} checked={item.status !== "ACTIVE"}/>)
             })
-        } else if (!this.state.tasks){
+        } else if (!(this.state.tasks || this.state.tasks.length)){
             components.push(<Typography variant="body1" gutterBottom sx={{
                 fontSize: 16,
                 fontFamily: 'Helvetica Neue',
