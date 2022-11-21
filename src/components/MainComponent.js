@@ -14,25 +14,6 @@ class MainComponent extends React.Component {
         };
     }
 
-    /* componentDidMount() {
-        fetch('https://todo-be-production.up.railway.app/tasks')
-           .then((response) => response.json())
-           .then(
-            (result) => {
-                if (result.status !== 500) {
-                    this.setState({
-                        tasks: result.tasks
-                      });
-                } else {
-                    this.setState({ errorMessage: result.message });
-                }
-              },
-           )
-           .catch(error => {
-            this.setState({ errorMessage: error.message });
-           });
-    } */
-
     componentDidMount() {
         fetch('https://todo-be-production.up.railway.app/tasks')
            .then((response) => {
