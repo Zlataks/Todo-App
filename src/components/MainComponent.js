@@ -1,42 +1,29 @@
 import React from 'react';
+import { useEffect } from 'react';
 import {Container, Typography} from '@mui/material';
 import TaskItem from './TaskItem';
 import Input from './Input';
 
+import { useSelector, useDispatch } from "react-redux";
 
+import { fetchTasks } from '../actions/tasks'
 
-class MainComponent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-           tasks: [],
-           errorMessage: null
-        };
-    }
+function MainComponent () {
+    const tasks = useSelector(state => state.tasks.tasks.tasks);
+    const errorMessage = useSelector(state => state.tasks.errorMessage);
+    console.log(tasks);
+    console.log(errorMessage);
 
-    componentDidMount() {
-        fetch('https://todo-be-production.up.railway.app/tasks')
-           .then((response) => {
-                if (!response.ok) {
-                    this.setState({ errorMessage: true });
-                } else {
-                    return response.json();
-                }
-            })
-            .then(
-                (result) => {
-                    this.setState({
-                            tasks: result.tasks
-                          });
-            })
-            .catch(error => {
-                this.setState({ errorMessage: true });
-            });
-    }
+    const dispatch = useDispatch();
 
-    render() {
-        const components = [];
-        if (this.state.errorMessage) {
+    useEffect(() => {
+        dispatch(fetchTasks());
+        
+    }, [dispatch]);
+    
+    const components = [];
+    
+    if (errorMessage) {
             components.push(<Typography variant="body1" gutterBottom sx={{
                 fontSize: 16,
                 fontFamily: 'Helvetica Neue',
@@ -44,11 +31,11 @@ class MainComponent extends React.Component {
               }}>
               Something went wrong. Please try later
           </Typography>)
-        } else if (this.state.tasks && this.state.tasks.length) {
-            this.state.tasks.forEach((item, i, arr) => {
-                components.push(<TaskItem first={i === 0} last={i === arr.length - 1} text={item.name} checked={item.status !== "ACTIVE"}/>)
+    } else if (tasks && tasks.length) {
+            tasks.forEach((item, i, arr) => {
+                components.push(<TaskItem first={i === 0} last={i === arr.length - 1}  text={item.name} checked={item.status !== "ACTIVE"}/>)
             })
-        } else if (!(this.state.tasks || this.state.tasks.length)){
+    } else if (!(tasks || tasks.length)){
             components.push(<Typography variant="body1" gutterBottom sx={{
                 fontSize: 16,
                 fontFamily: 'Helvetica Neue',
@@ -56,9 +43,9 @@ class MainComponent extends React.Component {
               }}>
               No task yet
           </Typography>)
-        }
+    }
         
-        return (
+    return (
             <div className="Wrapper">
                 <div></div>
                 <Container sx={{ backgroundColor: '#FFFFFF', width: '1032px', height: '688px', 
@@ -70,7 +57,6 @@ class MainComponent extends React.Component {
                 </Container>
             </div>
         );
-    }
 }
 
 export default MainComponent;
