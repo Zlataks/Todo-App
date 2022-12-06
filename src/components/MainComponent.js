@@ -11,9 +11,7 @@ import { fetchTasks } from '../actions/tasks'
 function MainComponent () {
     const tasks = useSelector(state => state.tasks.tasks.tasks);
     const errorMessage = useSelector(state => state.tasks.errorMessage);
-    console.log(tasks);
-    console.log(errorMessage);
-
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -31,11 +29,11 @@ function MainComponent () {
               }}>
               Something went wrong. Please try later
           </Typography>)
-    } else if (tasks && tasks.length) {
+    } else if (tasks && tasks?.length) {
             tasks.forEach((item, i, arr) => {
                 components.push(<TaskItem first={i === 0} last={i === arr.length - 1}  text={item.name} checked={item.status !== "ACTIVE"}/>)
             })
-    } else if (!(tasks || tasks.length)){
+    } else if (!(tasks || tasks?.length)){
             components.push(<Typography variant="body1" gutterBottom sx={{
                 fontSize: 16,
                 fontFamily: 'Helvetica Neue',
