@@ -15,6 +15,7 @@ export const fetchTasksFailure = error => {
 }
 
 export const fetchTasks = () => {
+  console.log(123)
   return function (dispatch) {
     axios
       .get('https://todo-be-production.up.railway.app/tasks')

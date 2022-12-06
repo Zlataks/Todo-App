@@ -29,11 +29,11 @@ function MainComponent () {
               }}>
               Something went wrong. Please try later
           </Typography>)
-    } else if (tasks && tasks?.length) {
+    } else if (tasks?.length) {
             tasks.forEach((item, i, arr) => {
-                components.push(<TaskItem first={i === 0} last={i === arr.length - 1}  text={item.name} checked={item.status !== "ACTIVE"}/>)
+                components.push(<TaskItem first={i === 0} last={i === arr?.length - 1}  text={item.name} checked={item.status !== "ACTIVE"}/>)
             })
-    } else if (!(tasks || tasks?.length)){
+    } else if (!(tasks?.length)){
             components.push(<Typography variant="body1" gutterBottom sx={{
                 fontSize: 16,
                 fontFamily: 'Helvetica Neue',
