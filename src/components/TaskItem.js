@@ -1,6 +1,6 @@
 import React from 'react';
 import {Checkbox, Box, Typography, IconButton} from '@mui/material';
-import {KeyboardArrowDown, KeyboardArrowUp, EditOutlined, DeleteOutlineOutlined} from '@mui/icons-material';;
+import {KeyboardArrowDown, KeyboardArrowUp, EditOutlined, DeleteOutlineOutlined} from '@mui/icons-material';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -52,7 +52,7 @@ class TaskItem extends React.Component {
                 opacity: 1,
               }
             }}>
-            <IconButton disabled={this.props.last}>
+          <IconButton disabled={this.props.last}>
               <KeyboardArrowDown />
             </IconButton>
             <IconButton disabled={this.props.first}>
@@ -66,6 +66,7 @@ class TaskItem extends React.Component {
             }}>
               <DeleteOutlineOutlined />
             </IconButton>
+
           </Box>
         </Box>
       );

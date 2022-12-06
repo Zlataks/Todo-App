@@ -5,7 +5,8 @@ body {
 
 .Wrapper {
   background-color: #FFD700;
-  padding: 86px;
+  min-height: 100vh;
+  display: flex;
 }
 
 .InputWrapper {
